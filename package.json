@@ -1,6 +1,7 @@
 {
   "name": "cards-game",
   "version": "0.1.0",
+  "homepage": "https://LinaCor.github.io/LinaCor/Card-game.git",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
