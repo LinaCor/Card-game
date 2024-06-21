@@ -1,12 +1,116 @@
-:root {
-  --animation-duration: 0.8s;
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-style: 100%;
+  line-height: 1;
+  font-style: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: inherit;
+  font-weight: 400;
 }
 
 
+/* style */
+
+:root {
+  --animation-duration: 0.8s;
+  --bckgnd-basic: #0A090D;
+  --bckgnd-elem-light: #D0D1D9;
+  --bckgnd-elem-dark: #342F40;
+  --accent-color-light: #F2EA72;
+  --accent-color-dark: #F2D06B;
+}
+
 body {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   margin: 0;
-  color: #333333;
-  background-color: #252525;
+  color: var(--bckgnd-elem-light);
+  background-color: var(--bckgnd-basic);
 }
 
 .container {
@@ -15,13 +119,17 @@ body {
   margin: 0 auto;
 }
 
+
+/* cards */
 .game {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
+
+  padding-top: 150px;
   margin-bottom: 155px;
 }
+
 
 .cards {
   display: flex;
@@ -44,7 +152,7 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
-  border: 1px solid #bebe9c;
+  border: 1px solid var(--bckgnd-elem-light);
   cursor: pointer;
   transition: transform var(--animation-duration);
   transform-style: preserve-3d;
@@ -110,4 +218,89 @@ body {
   transition-delay: var(--animation-duration);
   transition-duration: var(--animation-duration);
   transition-timing-function: ease-in-out;
+}
+
+
+/* rules */
+
+.rules {
+  max-width: 600px;
+  padding: 50px 70px;
+  text-align: center;
+  background-color: var(--bckgnd-elem-dark);
+  border-radius: 20px;
+}
+
+.rules h2 {
+  margin-bottom: 50px;
+  font-size: 38px;
+}
+
+.rules-panel p {
+  line-height: 30px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  color: var(--accent-color-dark);
+}
+
+.rules-choise p {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+
+.rules-choise__btn {
+  max-width: 150px;
+  width: 100%;
+  padding: 20px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: var(--accent-color-light);
+  color: var(--bckgnd-basic);
+  cursor: pointer;
+  transition: all .8s linear 0s;
+  position: relative;
+  z-index: 1;
+}
+
+.rules-choise__btn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right bottom, #ece24a 0%, #f5ef9d 50%, #ece24a 100%);
+  opacity: 0;
+  transition: opacity 0.4s linear;
+  z-index: -1;
+}
+
+.rules-choise__btn:hover::before {
+  opacity: 1;
+}
+
+.rules-choise__btn:not(:last-child) {
+  margin-right: 20px;
+}
+
+@keyframes hourglass {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+
+}
+
+.timer-icon img {
+  max-width: 100px;
+  margin: 50px 0;
+  animation-name: hourglass;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
 }

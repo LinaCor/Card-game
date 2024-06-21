@@ -76,3 +76,12 @@ export const lightMiddleAges = [{
   'url': require('./img/middle-ages/light/6-l.jpg'),
   'description': 'middle ages people',
 }];
+
+export const typeOfGame = {
+  timer: 'На время', errors: 'На ошибки',
+};
+
+export const gameToggle = { BEGGIN: 'beggin', GAME_TIME: 'game time', GAME_ERROR: 'game error' };
+
+
+

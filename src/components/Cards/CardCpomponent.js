@@ -45,7 +45,6 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards }) {
       </section>
     </>
   )
-
 }
 
 
