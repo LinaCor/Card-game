@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/Card-game/static/css/main.1cc228bb.css",
-    "main.js": "/Card-game/static/js/main.680e8d93.js",
+    "main.css": "/Card-game/static/css/main.1e310bca.css",
+    "main.js": "/Card-game/static/js/main.719bfe6c.js",
+    "static/media/night-card-shirt.png": "/Card-game/static/media/night-card-shirt.1a69fb0092df4ed46411.png",
     "static/media/light-card-shirt.png": "/Card-game/static/media/light-card-shirt.c89952d32fe056cdeb85.png",
     "static/media/6-n.jpg": "/Card-game/static/media/6-n.675aa649ef62ef5a0293.jpg",
     "static/media/1-n.jpg": "/Card-game/static/media/1-n.26320a4379dd19fce353.jpg",
@@ -16,13 +17,13 @@
     "static/media/5-n.jpg": "/Card-game/static/media/5-n.105301c8def603636e71.jpg",
     "static/media/5-l.jpg": "/Card-game/static/media/5-l.804efefc035bd35a63ec.jpg",
     "static/media/check-l.svg": "/Card-game/static/media/check-l.d21341c35c75fd4ec874.svg",
-    "static/media/timer.svg": "/Card-game/static/media/timer.5ebcf63300e9c9e3c110dbe2df24dd3c.svg",
+    "static/media/arrow-to-menu.svg": "/Card-game/static/media/arrow-to-menu.683bdae1ed871402c128376a31ea018c.svg",
     "index.html": "/Card-game/index.html",
-    "main.1cc228bb.css.map": "/Card-game/static/css/main.1cc228bb.css.map",
-    "main.680e8d93.js.map": "/Card-game/static/js/main.680e8d93.js.map"
+    "main.1e310bca.css.map": "/Card-game/static/css/main.1e310bca.css.map",
+    "main.719bfe6c.js.map": "/Card-game/static/js/main.719bfe6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cc228bb.css",
-    "static/js/main.680e8d93.js"
+    "static/css/main.1e310bca.css",
+    "static/js/main.719bfe6c.js"
   ]
 }
