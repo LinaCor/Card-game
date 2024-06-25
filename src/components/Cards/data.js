@@ -1,7 +1,7 @@
 //TODO: для меча и цветов - страдающее средневековье
 //TODO: для лунных и рыбных - что то вроде сигила
 
-export const darkMiddleAges = [{
+const darkMiddleAges = [{
   'id': '181e0411',
   'url': require('./img/middle-ages/dark/1-n.jpg'),
   'description': 'middle ages animals',
@@ -25,9 +25,33 @@ export const darkMiddleAges = [{
   'id': '85555dcd',
   'url': require('./img/middle-ages/dark/6-n.jpg'),
   'description': 'middle ages animals',
+}, {
+  'id': '181e0411-1',
+  'url': require('./img/middle-ages/dark/1-n.jpg'),
+  'description': 'middle ages animals',
+}, {
+  'id': '7141d1ac-1',
+  'url': require('./img/middle-ages/dark/2-n.jpg'),
+  'description': 'middle ages animals',
+}, {
+  'id': '7233c7fd-1',
+  'url': require('./img/middle-ages/dark/3-n.jpg'),
+  'description': 'middle ages animals',
+}, {
+  'id': '61badfb1-1',
+  'url': require('./img/middle-ages/dark/4-n.jpg'),
+  'description': 'middle ages animals',
+}, {
+  'id': '955fc32b-1',
+  'url': require('./img/middle-ages/dark/5-n.jpg'),
+  'description': 'middle ages animals',
+}, {
+  'id': '85555dcd-1',
+  'url': require('./img/middle-ages/dark/6-n.jpg'),
+  'description': 'middle ages animals',
 }];
 
-export const lightMiddleAges = [{
+const lightMiddleAges = [{
   'id': '181e0411',
   'url': require('./img/middle-ages/light/1-l.jpg'),
   'description': 'middle ages people',
@@ -76,6 +100,10 @@ export const lightMiddleAges = [{
   'url': require('./img/middle-ages/light/6-l.jpg'),
   'description': 'middle ages people',
 }];
+
+
+export const middleAges = { darkMiddleAges, lightMiddleAges }
+
 
 export const typeOfGame = {
   timer: 'На время', errors: 'На ошибки',

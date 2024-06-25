@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './css/style.css';
+import arrow from '../Cards/img/middle-ages/arrow-to-menu.svg'
 
-function CardCpomponent({ checkClick, finishedItems, typeOfCards }) {
+function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameCards }) {
+
   const TIMEOUT = 1500;
   const [visibles, setVisibles] = useState([]);
 
@@ -29,8 +31,8 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards }) {
 
   return (
     <>
-      <section class="game container">
-        <ul class="cards cards-theme-cars">
+      <section className="game container">
+        <ul className="cards cards-theme-cars">
           {typeOfCards.map((item) => <Card
             id={item.id}
             key={item.id}
@@ -40,8 +42,13 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards }) {
             isFinished={finishedItems.includes(item.id)}
             checkLength={visibles.length}
             handleCardClick={handleCardClick}
+            nameCards={nameCards}
           />)}
         </ul>
+        <button className="btn cards-button" onClick={backToMenu}>
+          <img src={arrow} alt='icon' />
+          <p>Вернуться на главную</p>
+        </button>
       </section>
     </>
   )
@@ -49,7 +56,8 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards }) {
 
 
 //отдельная карточка 
-function Card({ id, images, descr, isVisible, isFinished, handleCardClick, checkLength }) {
+function Card({ id, images, descr, isVisible, isFinished, handleCardClick, checkLength, nameCards }) {
+
 
   const errorcard = !isFinished && isVisible && checkLength === 2;
 
@@ -61,7 +69,7 @@ function Card({ id, images, descr, isVisible, isFinished, handleCardClick, check
     handleCardClick(id);
   }
   return (
-    <li className={`card ${classCard}`} onClick={clickCard}>
+    <li className={`card card-${nameCards} ${classCard}`} onClick={clickCard}>
       <img src={images} alt={descr} />
     </li>
   )

@@ -21,8 +21,8 @@ export function StartGame({ decideCards }) {
       </div>
       <div class="rules-choise">
         <p><span>Выберите тип игры:</span></p>
-        <button class="rules-choise__btn" type="button" onClick={clicGame}>На время</button>
-        <button class="rules-choise__btn" type="button" onClick={clicGame}>На ошибки</button>
+        <button class="btn rules-choise__btn" type="button" onClick={clicGame}>На время</button>
+        <button class="btn rules-choise__btn" type="button" onClick={clicGame}>На ошибки</button>
       </div>
     </section>
 
