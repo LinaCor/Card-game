@@ -13,16 +13,15 @@ export function StartGame({ decideCards }) {
   }
 
   return (
-
-    <section class="rules">
+    <section className="rules">
       <h2>Приветствуем вас в игре "Собери пару"!</h2>
-      <div class="rules-panel">
+      <div className="rules-panel">
         <p>Правила просты: вам необходимо открыть все одинаковые карточки</p>
       </div>
-      <div class="rules-choise">
+      <div className="rules-choise">
         <p><span>Выберите тип игры:</span></p>
-        <button class="btn rules-choise__btn" type="button" onClick={clicGame}>На время</button>
-        <button class="btn rules-choise__btn" type="button" onClick={clicGame}>На ошибки</button>
+        <button className="btn rules-choise__btn" type="button" onClick={clicGame}>На время</button>
+        <button className="btn rules-choise__btn" type="button" onClick={clicGame}>На ошибки</button>
       </div>
     </section>
 

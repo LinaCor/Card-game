@@ -236,7 +236,8 @@ body {
   transition: var(--animation-duration);
 }
 
-.game .cards-button img {
+.game .cards-button img,
+.rules-choise__btn img {
   max-width: 30px;
   margin-right: 10px;
 }
@@ -312,22 +313,24 @@ body {
   margin-right: 20px;
 }
 
-@keyframes hourglass {
-  0% {
-    transform: rotate(0deg);
-  }
+/* popup end game*/
 
-  100% {
-    transform: rotate(180deg);
-  }
+/*.end-container::before {
+  content: " ";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(32, 28, 32, 0.9);
+  z-index: 1;
+}*/
 
+.end-game {
+  position: absolute;
+  z-index: 2;
 }
 
-.timer-icon img {
-  max-width: 100px;
-  margin: 50px 0;
-  animation-name: hourglass;
-  animation-duration: 3s;
-  animation-delay: 3s;
-  animation-iteration-count: infinite;
+.btn-end {
+  padding: 5px;
 }
