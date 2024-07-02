@@ -8,9 +8,9 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
   const TIMEOUT = 1500;
   const [visibles, setVisibles] = useState([]);
   const handlerBtn = true;
-  const btnText = handlerBtn ? 'Вы не успели отгадать все карточки :(' : 'Поздравляем, вы победили!';
+  const btnText = handlerBtn ? 'Поздравляем, вы успели открыть все карточки!' : 'Вы не успели отгадать все карточки :(';
 
-  const gameOver = finishedItems.length === 12;
+  const gameOver = finishedItems.length === typeOfCards.length;
 
 
   function handleCardClick(id) {
@@ -57,7 +57,7 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
           <img src={arrow} alt='icon' />
           <p>Вернуться на главную</p>
         </button>
-        {gameOver ? <EndGame children={btnText} backToMenu={backToMenu} restartGame={restartGame} /> : null}
+        <EndGame children={btnText} backToMenu={backToMenu} restartGame={restartGame} gameOver={gameOver} />
       </section>
     </>
   )
