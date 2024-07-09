@@ -2,15 +2,18 @@ import { useState } from 'react';
 import './css/style.css';
 import arrow from '../Cards/img/middle-ages/arrow-to-menu.svg'
 import { EndGame } from './EndGame';
+import { TimerEnd } from './TimerEnd';
+import { LiveEnd } from './LiveEnd';
 
 function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameCards, restartGame }) {
 
   const TIMEOUT = 1500;
   const [visibles, setVisibles] = useState([]);
-  const handlerBtn = true;
-  const btnText = handlerBtn ? 'Поздравляем, вы успели открыть все карточки!' : 'Вы не успели отгадать все карточки :(';
+  const [timer, setTimer] = useState(30);
+  const [userLost, setUserLost] = useState();
 
-  const gameOver = finishedItems.length === typeOfCards.length;
+  const gameWin = finishedItems.length === typeOfCards.length;
+  const gameLose = finishedItems.length !== typeOfCards.length && timer === 0;
 
 
   function handleCardClick(id) {
@@ -21,8 +24,6 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
     switch (visibles.length) {
       case 0:
         setVisibles([id]);
-        console.log(btnText)
-
         break;
       case 1:
         setVisibles((items) => [...items, id]);
@@ -37,10 +38,17 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
   }
 
 
+  function handleRestartGame() {
+    restartGame();
+    setTimer(30);
+  }
+
+
   return (
     <>
-      <section className="game container end-container">
-        <ul className="cards cards-theme-cars">
+      <section className="game container">
+        {nameCards === 'errors' ? <LiveEnd /> : <TimerEnd userLost={setUserLost} timer={timer} setTimer={setTimer} gameWin={gameWin} />}
+        <ul className="cards">
           {typeOfCards.map((item) => <Card
             id={item.id}
             key={item.id}
@@ -57,7 +65,7 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
           <img src={arrow} alt='icon' />
           <p>Вернуться на главную</p>
         </button>
-        <EndGame children={btnText} backToMenu={backToMenu} restartGame={restartGame} gameOver={gameOver} />
+        <EndGame backToMenu={backToMenu} restartGame={handleRestartGame} gameLose={gameLose} gameWin={gameWin} />
       </section>
     </>
   )

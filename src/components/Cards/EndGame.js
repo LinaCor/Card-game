@@ -3,12 +3,11 @@ import arrow from '../Cards/img/middle-ages/arrow-to-menu.svg'
 import reverse from '../Cards/img/middle-ages/reverse-game.svg'
 
 
-export function EndGame({ children, backToMenu, restartGame, gameOver }) {
-
+export function EndGame({ backToMenu, restartGame, gameLose, gameWin }) {
   return (
-    <div className={`mask-off ${gameOver ? 'mask-on' : ''}`}>
+    <div className={`mask-off ${gameLose || gameWin ? 'mask-on' : ''}`}>
       <section className="rules">
-        <h2>{children}</h2>
+        <h2>{gameWin ? 'Поздравляем, вы успели открыть все карточки!' : 'Вы не успели отгадать все карточки :('}</h2>
         <div className="rules-choise">
           <button className="btn rules-choise__btn btn-end" type="button" onClick={restartGame}>
             <img src={reverse} alt='icon' />

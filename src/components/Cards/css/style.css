@@ -201,7 +201,7 @@ body {
 
 .card:not(.card-show):not(.card-finished):hover {
   box-shadow: 0 6px 16px rgba(140, 174, 200, 0.6);
-  transform: scale(1.07);
+  transform: scale(1.03);
 }
 
 
@@ -230,16 +230,16 @@ body {
 .game .cards-button {
   display: flex;
   align-items: center;
-  max-width: 250px;
-  padding: 10px 16px;
-  font-size: 14px;
+  max-width: 200px;
+  padding: 5px 8px;
+  font-size: 12px;
   transition: var(--animation-duration);
 }
 
 .game .cards-button img,
 .rules-choise__btn img {
-  max-width: 30px;
-  margin-right: 10px;
+  max-width: 20px;
+  margin-right: 5px;
 }
 
 .game .cards-button:hover {
@@ -258,7 +258,7 @@ body {
 
 .rules h2 {
   margin-bottom: 50px;
-  font-size: 38px;
+  font-size: 34px;
 }
 
 .rules-panel p {
@@ -269,7 +269,7 @@ body {
 }
 
 .rules-choise p {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-size: 18px;
 }
 
@@ -337,4 +337,18 @@ body {
 
 .btn-end {
   padding: 5px;
+}
+
+/* counter */
+
+.counter {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.counter-field__time {
+  color: var(--accent-color-dark);
 }
