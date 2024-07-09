@@ -22,3 +22,4 @@ export function EndGame({ backToMenu, restartGame, gameLose, gameWin }) {
     </div >
   );
 }
+
