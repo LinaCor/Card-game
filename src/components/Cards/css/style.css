@@ -347,9 +347,30 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
 }
 
 .counter-field__time {
   color: var(--accent-color-dark);
+}
+
+/*.counter-field__list li img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(100%) saturate(7484%) hue-rotate(349deg) brightness(101%) contrast(101%);
+}*/
+
+.counter-field__list {
+  display: flex;
+}
+
+.counter-field__list li svg {
+  width: 30px;
+  height: 30px;
+}
+
+.live-red {
+  fill: #cf1a1a;
 }

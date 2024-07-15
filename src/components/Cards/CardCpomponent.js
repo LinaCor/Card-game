@@ -5,15 +5,15 @@ import { EndGame } from './EndGame';
 import { TimerEnd } from './TimerEnd';
 import { LiveEnd } from './LiveEnd';
 
-function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameCards, restartGame }) {
+function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameCards, restartGame, livesCount }) {
 
   const TIMEOUT = 1500;
   const [visibles, setVisibles] = useState([]);
-  const [timer, setTimer] = useState(30);
-  const [userLost, setUserLost] = useState();
+  const [timer, setTimer] = useState(10);
+  const [userLost, setUserLost] = useState(false);
 
   const gameWin = finishedItems.length === typeOfCards.length;
-  const gameLose = finishedItems.length !== typeOfCards.length && timer === 0;
+  const gameLose = (finishedItems.length !== typeOfCards.length && timer === 0) || livesCount === 0;
 
 
   function handleCardClick(id) {
@@ -47,7 +47,7 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
   return (
     <>
       <section className="game container">
-        {nameCards === 'errors' ? <LiveEnd /> : <TimerEnd userLost={setUserLost} timer={timer} setTimer={setTimer} gameWin={gameWin} />}
+        {nameCards === 'errors' ? <LiveEnd livesCount={livesCount} /> : <TimerEnd userLost={setUserLost} timer={timer} setTimer={setTimer} gameWin={gameWin} />}
         <ul className="cards">
           {typeOfCards.map((item) => <Card
             id={item.id}
@@ -75,14 +75,15 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
 //отдельная карточка 
 function Card({ id, images, descr, isVisible, isFinished, handleCardClick, checkLength, nameCards }) {
 
-  const errorcard = !isFinished && isVisible && checkLength === 2;
+  const errorCards = !isFinished && isVisible && checkLength === 2;
   const classCard = `${isVisible ? 'card-show' : ''} 
                     ${isFinished ? 'card-finished' : ''}
-                    ${errorcard ? 'card-error' : ''}`;
+                    ${errorCards ? 'card-error' : ''}`;
 
   function clickCard() {
     handleCardClick(id);
-  }
+  };
+
   return (
     <li className={`card card-${nameCards} ${classCard}`} onClick={clickCard}>
       <img src={images} alt={descr} />

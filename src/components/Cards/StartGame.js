@@ -19,11 +19,10 @@ export function StartGame({ decideCards }) {
         <p>Правила просты: вам необходимо открыть все одинаковые карточки</p>
       </div>
       <div className="rules-choise">
-        <p><span>Выберите тип игры:</span></p>
+        <p style={{ marginBottom: 20 }}><span>Выберите тип игры:</span></p>
         <button className="btn rules-choise__btn" type="button" onClick={clicGame}>На время</button>
         <button className="btn rules-choise__btn" type="button" onClick={clicGame}>На ошибки</button>
       </div>
     </section>
-
   );
 }

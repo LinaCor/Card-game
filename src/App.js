@@ -10,6 +10,7 @@ function App() {
   const [gameScreen, setGameScreen] = useState(gameToggle.BEGGIN);
   const [gameCards, setGameCards] = useState(middleAges.lightMiddleAges);
   const [nameCards, setNameCards] = useState('');
+  const [livesCount, setLivesCount] = useState(4);
 
 
   function checkClick(firstCard, SecCard) {
@@ -17,6 +18,8 @@ function App() {
     const card2 = gameCards.find((el) => el.id === SecCard);
     if (card1.url === card2.url) {
       setFinishedItems(item => [...item, firstCard, SecCard]);
+    } else {
+      setLivesCount(prev => prev - 1)
     };
   }
 
@@ -28,6 +31,7 @@ function App() {
   function restartGame() {
     setFinishedItems([]);
     decideCards(nameCards);
+    setLivesCount(4);
   }
 
   function decideCards(name) {
@@ -55,7 +59,7 @@ function App() {
       case gameToggle.GAME_ERROR:
         return (
           <div className="app-container">
-            <CardCpomponent checkClick={checkClick} finishedItems={finishedItems} typeOfCards={gameCards} backToMenu={backToMenu} nameCards={nameCards} restartGame={restartGame} />
+            <CardCpomponent checkClick={checkClick} finishedItems={finishedItems} typeOfCards={gameCards} backToMenu={backToMenu} nameCards={nameCards} restartGame={restartGame} livesCount={livesCount} />
           </div>
         );
       default:
