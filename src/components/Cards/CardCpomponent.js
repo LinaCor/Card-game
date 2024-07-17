@@ -5,15 +5,15 @@ import { EndGame } from './EndGame';
 import { TimerEnd } from './TimerEnd';
 import { LiveEnd } from './LiveEnd';
 
-function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameCards, restartGame, livesCount }) {
-
+function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameOfCards, restartGame, livesCount }) {
   const TIMEOUT = 1500;
+  const TIMER_GAME = 45;
   const [visibles, setVisibles] = useState([]);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(TIMER_GAME);
   const [userLost, setUserLost] = useState(false);
 
   const gameWin = finishedItems.length === typeOfCards.length;
-  const gameLose = (finishedItems.length !== typeOfCards.length && timer === 0) || livesCount === 0;
+  const gameLose = (finishedItems.length !== typeOfCards.length && timer === 0) || (livesCount === 0 && nameOfCards === 'errors');
 
 
   function handleCardClick(id) {
@@ -40,14 +40,16 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
 
   function handleRestartGame() {
     restartGame();
-    setTimer(30);
+    setTimer(TIMER_GAME);
   }
 
 
   return (
     <>
       <section className="game container">
-        {nameCards === 'errors' ? <LiveEnd livesCount={livesCount} /> : <TimerEnd userLost={setUserLost} timer={timer} setTimer={setTimer} gameWin={gameWin} />}
+        {nameOfCards === 'errors' ?
+          <LiveEnd livesCount={livesCount} /> :
+          <TimerEnd userLost={setUserLost} timer={timer} setTimer={setTimer} gameWin={gameWin} />}
         <ul className="cards">
           {typeOfCards.map((item) => <Card
             id={item.id}
@@ -58,7 +60,7 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
             isFinished={finishedItems.includes(item.id)}
             checkLength={visibles.length}
             handleCardClick={handleCardClick}
-            nameCards={nameCards}
+            nameOfCards={nameOfCards}
           />)}
         </ul>
         <button className="btn cards-button" onClick={backToMenu}>
@@ -73,19 +75,19 @@ function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, na
 
 
 //отдельная карточка 
-function Card({ id, images, descr, isVisible, isFinished, handleCardClick, checkLength, nameCards }) {
+function Card({ id, images, descr, isVisible, isFinished, handleCardClick, checkLength, nameOfCards }) {
 
   const errorCards = !isFinished && isVisible && checkLength === 2;
   const classCard = `${isVisible ? 'card-show' : ''} 
                     ${isFinished ? 'card-finished' : ''}
-                    ${errorCards ? 'card-error' : ''}`;
+                    ${errorCards ? 'card-miss' : ''}`;
 
   function clickCard() {
     handleCardClick(id);
   };
 
   return (
-    <li className={`card card-${nameCards} ${classCard}`} onClick={clickCard}>
+    <li className={`card card-${nameOfCards} ${classCard}`} onClick={clickCard}>
       <img src={images} alt={descr} />
     </li>
   )

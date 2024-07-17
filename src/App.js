@@ -1,48 +1,51 @@
 import { useState } from 'react';
 import './App.css';
 import CardCpomponent from './components/Cards/CardCpomponent';
-import { middleAges, gameToggle } from './components/Cards/data';
+import { middleAges, gameToggle, createCardField } from './components/Cards/data';
 import { StartGame } from './components/Cards/StartGame';
 
 
 function App() {
+  const COUNTER_LIVES = 6;
   const [finishedItems, setFinishedItems] = useState([]);
   const [gameScreen, setGameScreen] = useState(gameToggle.BEGGIN);
-  const [gameCards, setGameCards] = useState(middleAges.lightMiddleAges);
-  const [nameCards, setNameCards] = useState('');
-  const [livesCount, setLivesCount] = useState(4);
+  const [gameCards, setGameCards] = useState();
+  const [nameOfCards, setNameOfCards] = useState('');
+  const [livesCount, setLivesCount] = useState(COUNTER_LIVES);
 
 
   function checkClick(firstCard, SecCard) {
     const card1 = gameCards.find((el) => el.id === firstCard);
     const card2 = gameCards.find((el) => el.id === SecCard);
+
     if (card1.url === card2.url) {
       setFinishedItems(item => [...item, firstCard, SecCard]);
     } else {
-      setLivesCount(prev => prev - 1)
+      setLivesCount(prev => prev - 1);
     };
   }
 
   function backToMenu() {
     setGameScreen(gameToggle.BEGGIN);
     setFinishedItems([]);
+    setLivesCount(COUNTER_LIVES);
   }
 
   function restartGame() {
     setFinishedItems([]);
-    decideCards(nameCards);
-    setLivesCount(4);
+    decideCards(nameOfCards);
+    setLivesCount(COUNTER_LIVES);
   }
 
   function decideCards(name) {
     if (name === 'errors') {
       setGameScreen(gameToggle.GAME_ERROR);
-      setGameCards(middleAges.lightMiddleAges);
-      setNameCards('errors');
+      setGameCards(createCardField(middleAges.lightMiddleAges));
+      setNameOfCards('errors');
     } else {
       setGameScreen(gameToggle.GAME_TIME);
-      setGameCards(middleAges.darkMiddleAges);
-      setNameCards('time');
+      setGameCards(createCardField(middleAges.darkMiddleAges));
+      setNameOfCards('time');
     }
   }
 
@@ -51,15 +54,15 @@ function App() {
     switch (route) {
       case gameToggle.BEGGIN:
         return (
-          <div className="app-container">
+          <div className="beggin-wrapper">
             <StartGame decideCards={decideCards}></StartGame>
           </div>
         );
       case gameToggle.GAME_TIME:
       case gameToggle.GAME_ERROR:
         return (
-          <div className="app-container">
-            <CardCpomponent checkClick={checkClick} finishedItems={finishedItems} typeOfCards={gameCards} backToMenu={backToMenu} nameCards={nameCards} restartGame={restartGame} livesCount={livesCount} />
+          <div className="game-wrapper">
+            <CardCpomponent checkClick={checkClick} finishedItems={finishedItems} typeOfCards={gameCards} backToMenu={backToMenu} nameOfCards={nameOfCards} restartGame={restartGame} livesCount={livesCount} />
           </div>
         );
       default:

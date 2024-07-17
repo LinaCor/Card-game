@@ -1,6 +1,9 @@
-.app-container {
-  height: 100vh;
+.beggin-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  transform: translateY(50%);
+}
+
+.game-wrapper {
+  margin-top: 25px;
 }
