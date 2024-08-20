@@ -318,6 +318,7 @@ body {
 }
 
 .mask-on {
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -423,6 +424,10 @@ body {
     width: 110px;
     height: 167px;
   }
+
+  .beggin-wrapper {
+    transform: translateY(30%);
+  }
 }
 
 @media (max-width:480px) {
@@ -454,26 +459,3 @@ body {
     height: 147px;
   }
 }
-
-
-
-
-/*@media (max-width:767px) {
-  .cards {
-    gap: 10px;
-  }
-
-  .card {
-    width: 120px;
-    height: 200px;
-  }
-}*/
-
-
-/*@media (max-width:510px) {
-
-  .card {
-    width: 90px;
-    height: 150px;
-  }
-}*/
