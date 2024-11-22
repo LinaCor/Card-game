@@ -7,7 +7,7 @@ import { LiveEnd } from './LiveEnd';
 
 function CardCpomponent({ checkClick, finishedItems, typeOfCards, backToMenu, nameOfCards, restartGame, livesCount }) {
   const TIMEOUT = 1500;
-  const TIMER_GAME = 450;
+  const TIMER_GAME = 45;
   const [visibles, setVisibles] = useState([]);
   const [timer, setTimer] = useState(TIMER_GAME);
   const [userLost, setUserLost] = useState(false);
