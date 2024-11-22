@@ -94,7 +94,7 @@ h6 {
 /* style */
 
 :root {
-  --animation-duration: 0.6s;
+  --animation-duration: 0.3s;
   --bckgnd-basic: #0A090D;
   --bckgnd-elem-light: #D0D1D9;
   --bckgnd-elem-dark: #342F40;
